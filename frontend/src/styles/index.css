@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased bg-stone-50 text-stone-900;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-leather-700 text-white px-6 py-3 rounded-md font-medium 
+           hover:bg-leather-800 transition-all duration-200 
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-outline {
+    @apply border-2 border-leather-700 text-leather-700 px-6 py-3 rounded-md font-medium 
+           hover:bg-leather-700 hover:text-white transition-all duration-200;
+  }
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-stone-200 overflow-hidden 
+           hover:shadow-md transition-shadow duration-200;
+  }
+  .input-field {
+    @apply w-full px-4 py-3 border border-stone-300 rounded-md 
+           focus:outline-none focus:ring-2 focus:ring-leather-500 focus:border-transparent
+           placeholder:text-stone-400;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-serif font-bold text-stone-900 mb-2;
+  }
+  .section-subtitle {
+    @apply text-stone-500 text-lg;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f5f4;
+}
+::-webkit-scrollbar-thumb {
+  background: #a8a29e;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #78716c;
+}
+
+/* Image zoom effect */
+.zoom-container {
+  overflow: hidden;
+}
+.zoom-container img {
+  transition: transform 0.5s ease;
+}
+.zoom-container:hover img {
+  transform: scale(1.15);
+}
+
+/* Flash sale pulse */
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(220, 38, 38, 0); }
+}
+.flash-sale-badge {
+  animation: pulse-red 2s infinite;
+}
